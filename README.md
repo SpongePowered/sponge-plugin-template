@@ -5,9 +5,9 @@ A simple example plugin for Sponge, demonstrating SpongeGradle.
 ### To get started:
 
 1. Create a new repository from this template
-2. Change the project name and group in `gradle.properties`
-3. Move the example plugin to a class in your own namespace
-4. Update the plugin information in `build.gradle.kts`
+2. Change the project name in `settings.gradle.kts`
+3. Move the example plugin to a package in your own namespace
+4. Update project group, version, and plugin information in `build.gradle.kts`
 
 ### Next steps:
 

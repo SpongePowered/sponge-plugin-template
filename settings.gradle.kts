@@ -7,3 +7,5 @@ pluginManagement {
         }
     }
 }
+
+rootProject.name = "sponge-plugin-template"
