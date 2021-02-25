@@ -9,6 +9,10 @@ plugins {
 group = "org.spongepowered"
 version = "1.0-SNAPSHOT"
 
+repositories {
+    mavenCentral()
+}
+
 sponge {
     apiVersion("8.0.0")
     plugin("example") {
