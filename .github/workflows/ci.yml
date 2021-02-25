@@ -1,6 +1,6 @@
 # Making changes? https://github.com/nektos/act may help you test locally
 
-name: Build, Test, and Deploy
+name: Build with GitHub Actions
 
 on:
   push:
