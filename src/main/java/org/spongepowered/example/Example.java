@@ -59,11 +59,11 @@ public class Example {
     public void onRegisterCommands(final RegisterCommandEvent<Command.Parameterized> event) {
         // Register a simple command
         // When possible, all commands should be registered within a command register event
-        final Parameter.Value<String> nameParam = Parameter.string().setKey("name").build();
+        final Parameter.Value<String> nameParam = Parameter.string().key("name").build();
         event.register(this.container, Command.builder()
-            .parameter(nameParam)
-            .setPermission("example.command.greet")
-            .setExecutor(ctx -> {
+            .addParameter(nameParam)
+            .permission("example.command.greet")
+            .executor(ctx -> {
                 final String name = ctx.requireOne(nameParam);
                 ctx.sendMessage(Identity.nil(), LinearComponents.linear(
                     NamedTextColor.AQUA,
