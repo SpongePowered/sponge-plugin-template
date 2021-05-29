@@ -14,7 +14,7 @@ repositories {
 }
 
 sponge {
-    apiVersion("8.0.0")
+    apiVersion("9.0.0")
     plugin("example") {
         loader(PluginLoaders.JAVA_PLAIN)
         displayName("Example")
@@ -35,18 +35,19 @@ sponge {
     }
 }
 
-val javaTarget = 8 // Sponge targets a minimum of Java 8
+val javaTarget = 16 // Sponge targets a minimum of Java 8
 java {
     sourceCompatibility = JavaVersion.toVersion(javaTarget)
     targetCompatibility = JavaVersion.toVersion(javaTarget)
+    if (JavaVersion.current() < JavaVersion.toVersion(javaTarget)) {
+        toolchain.languageVersion.set(JavaLanguageVersion.of(javaTarget))
+    }
 }
 
 tasks.withType(JavaCompile::class).configureEach {
     options.apply {
         encoding = "utf-8" // Consistent source file encoding
-        if (JavaVersion.current().isJava10Compatible) {
-            release.set(javaTarget)
-        }
+        release.set(javaTarget)
     }
 }
 
