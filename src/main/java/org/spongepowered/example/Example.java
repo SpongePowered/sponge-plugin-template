@@ -38,25 +38,25 @@ public class Example {
     }
 
     @Listener
-    public void onConstructPlugin(final ConstructPluginEvent event) {
+    private void onConstructPlugin(final ConstructPluginEvent event) {
         // Perform any one-time setup
         this.logger.info("Constructing example plugin");
     }
 
     @Listener
-    public void onServerStarting(final StartingEngineEvent<Server> event) {
+    private void onServerStarting(final StartingEngineEvent<Server> event) {
         // Any setup per-game instance. This can run multiple times when
         // using the integrated (singleplayer) server.
     }
 
     @Listener
-    public void onServerStopping(final StoppingEngineEvent<Server> event) {
+    private void onServerStopping(final StoppingEngineEvent<Server> event) {
         // Any tear down per-game instance. This can run multiple times when
         // using the integrated (singleplayer) server.
     }
 
     @Listener
-    public void onRegisterCommands(final RegisterCommandEvent<Command.Parameterized> event) {
+    private void onRegisterCommands(final RegisterCommandEvent<Command.Parameterized> event) {
         // Register a simple command
         // When possible, all commands should be registered within a command register event
         final Parameter.Value<String> nameParam = Parameter.string().key("name").build();
