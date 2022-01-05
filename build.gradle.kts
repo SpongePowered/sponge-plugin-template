@@ -1,9 +1,9 @@
 import org.spongepowered.gradle.plugin.config.PluginLoaders
-import org.spongepowered.plugin.metadata.PluginDependency
+import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
     `java-library`
-    id("org.spongepowered.gradle.plugin") version "1.1.1"
+    id("org.spongepowered.gradle.plugin") version "2.0.0"
 }
 
 group = "org.spongepowered"
@@ -15,10 +15,14 @@ repositories {
 
 sponge {
     apiVersion("9.0.0")
+    license("CHANGEME")
+    loader {
+        name(PluginLoaders.JAVA_PLAIN)
+        version("1.0")
+    }
     plugin("example") {
-        loader(PluginLoaders.JAVA_PLAIN)
         displayName("Example")
-        mainClass("org.spongepowered.example.Example")
+        entrypoint("org.spongepowered.example.Example")
         description("Just testing things...")
         links {
             homepage("https://spongepowered.org")
