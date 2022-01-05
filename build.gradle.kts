@@ -39,7 +39,7 @@ sponge {
     }
 }
 
-val javaTarget = 16 // Sponge targets a minimum of Java 8
+val javaTarget = 17
 java {
     sourceCompatibility = JavaVersion.toVersion(javaTarget)
     targetCompatibility = JavaVersion.toVersion(javaTarget)
