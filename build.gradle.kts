@@ -3,7 +3,7 @@ import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
     `java-library`
-    id("org.spongepowered.gradle.plugin") version "2.0.0"
+    id("org.spongepowered.gradle.plugin") version "2.0.1"
 }
 
 group = "org.spongepowered"
