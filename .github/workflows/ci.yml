@@ -10,6 +10,13 @@ on:
   release:
     types: [released]
 
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.number || github.ref }}"
+  cancel-in-progress: true
+
+env:
+  RUNTIME_VERSION: 17
+
 jobs:
   build:
     # Only run on PRs if the source branch is on someone else's repo
@@ -23,11 +30,11 @@ jobs:
       # Setup
       - name: Check out
         uses: actions/checkout@v3
-      - name: Setup JDK 17
+      - name: "Setup JDK ${{ env.RUNTIME_VERSION }}"
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 17
+          java-version: "${{ env.RUNTIME_VERSION }}"
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
@@ -40,6 +47,6 @@ jobs:
         if: "${{ always() }}"
         uses: actions/upload-artifact@v3
         with:
-          name: test-results
+          name: "${{ runner.os }}-test-results"
           path: |
             build/reports/
