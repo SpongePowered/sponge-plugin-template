@@ -2,7 +2,7 @@
 format = { version = "1.1" }
 
 [versions]
-spongeAPI = "11.0.0-SNAPSHOT"
+spongeAPI = "12.0.0"
 
 # If you chose to use this as a dependency management rather than
 # using SpongeGradle's plugin for plugin developers, you can refer to the api as
