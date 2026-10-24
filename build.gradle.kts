@@ -2,11 +2,12 @@ import org.spongepowered.gradle.plugin.config.PluginLoaders
 import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
-    val spongeGradleVersion = "2.2.0"
+    val spongeGradleVersion = "2.4.0"
 
     `java-library`
     id("org.spongepowered.gradle.plugin") version spongeGradleVersion
     id("org.spongepowered.gradle.ore") version spongeGradleVersion // for Ore publishing
+    id("org.spongepowered.gradle.vanilla") version "0.2.2" // Minecraft classes for gametests
 }
 
 group = "org.spongepowered"
@@ -18,6 +19,7 @@ repositories {
 
 sponge {
     apiVersion("12.0.0")
+    minecraftVersion("1.21.1")
     license("CHANGEME")
     loader {
         name(PluginLoaders.JAVA_PLAIN)
@@ -40,6 +42,12 @@ sponge {
             optional(false)
         }
     }
+    // Runs the gametests under src/test on a headless SpongeVanilla server through the test task
+    gameTests()
+}
+
+minecraft {
+    version("1.21.1")
 }
 
 val javaTarget = 21
