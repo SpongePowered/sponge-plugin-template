@@ -2,7 +2,7 @@ import org.spongepowered.gradle.plugin.config.PluginLoaders
 import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
-    val spongeGradleVersion = "2.4.0"
+    val spongeGradleVersion = "2.5.1"
 
     `java-library`
     id("org.spongepowered.gradle.plugin") version spongeGradleVersion
@@ -42,7 +42,7 @@ sponge {
             optional(false)
         }
     }
-    // Runs the gametests under src/test on a headless SpongeVanilla server through the test task
+    // Runs the gametests under src/gametest on a headless SpongeVanilla server through the test task
     gameTests()
 }
 
